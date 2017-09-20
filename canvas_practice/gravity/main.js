@@ -12,7 +12,7 @@ var c = canvas.getContext('2d');
 var gravity = 1;
 var friction = 0.9;
 var ballColors = ["#E54661", "#FFA644", "#998A2F", "#2C594F", "#002D40", "#0497FF", "grey"];
-var ballsCount = 400;
+var ballsCount = 100;
 
 
 
