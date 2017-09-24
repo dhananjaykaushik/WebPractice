@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html ng-app="angJs">
+  <head>
+    <meta charset="utf-8">
+    <title>DATA BINDING</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background: #333;
+        color: white;
+        font-family: arial, helvetical, tahoma, sans-serif;
+        letter-spacing: 1.3px;
+      }
+      div.container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .container h1 {
+        background: #444;
+        margin: 0 0 2vh 0;
+        padding: 5vh 0;
+        width: 100vw;
+        text-align: center;
+        font-size: 4.5vh;
+        text-transform: uppercase;
+      }
+
+      .container div {
+        flex-grow: 2;
+      }
+
+      .container ul {
+        background: #444;
+        margin: 3vh 0 0 0;
+        padding: 5vh 0;
+        width: 100vw;
+        text-align: center;
+      }
+
+      .container ul li {
+        background: #333;
+        margin: 2vh 0 2vh 0;
+        padding: 2vh 1vh 2vh 1vh;
+        width: 100vw;
+      }
+
+      .container button {
+        width: 10vw;
+        background: #666;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        margin-right: 15vw;
+        margin-left: 15vw;
+        color: white;
+        font-size: 2vh;
+        padding: 2vh;
+      }
+
+      .container button:hover {
+        background-color: black;
+        cursor: pointer;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="container" ng-controller="Test">
+      <h1>QUOTE GENERATOR</h1>
+      <span>
+        <button ng-click="showQuotes()">SHOW QUOTES</button>
+        <button ng-click="hideQuotes()">HIDE QUOTES</button>
+      </span>
+      <div>
+        <ul ng-show="toShow">
+          <li ng-repeat="i in  quotes">
+            {{i}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script type="text/javascript">
+      var angJs = angular.module('angJs', []).controller('Test', function($scope) {
+
+        $scope.toShow = false;
+        $scope.showQuotes = function() {
+          $scope.toShow = true;
+          console.log($scope.toShow);
+        };
+        $scope.hideQuotes = function() {
+          $scope.toShow = false;
+          console.log($scope.toShow);
+        };
+
+        $scope.quotes = [
+          "I Grow Through What I Go Through",
+          "Better A Witty Fool Than A Foolish Wit",
+          "Yeah Whatever.",
+          "Be yourself; everyone else is already taken.",
+          "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+          "Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.",
+          "You only live once, but if you do it right, once is enough."
+        ];
+      });
+    </script>
+  </body>
+</html>
