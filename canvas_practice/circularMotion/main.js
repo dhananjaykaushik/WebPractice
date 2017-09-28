@@ -10,8 +10,8 @@ canvas.height = window.innerHeight;
 
 var c = canvas.getContext('2d');
 
-var particleColors = ["#C351FF", "#832CE8", "#723DFF", "#3C2CE8", "#2A40FF", "orangered", "gold", "navyblue"];
-var particleCount = 200;
+var particleColors = ["#C351FF", "#832CE8", "#723DFF", "#3C2CE8", "#2A40FF", "orangered", "gold", "navyblue", "#333"];
+var particleCount = 1000;
 
 
 var mouse = {
@@ -82,8 +82,8 @@ function Particle(x, y, radius, color) {
     c.beginPath();
     c.strokeStyle = this.color;
     c.lineWidth = this.radius;
-    c.moveTo(lastPoint.x, lastPoint.y);
-    c.lineTo(this.x, this.y);
+    c.moveTo(lastPoint.x , lastPoint.y);
+    c.lineTo(this.x , this.y);
     c.stroke();
     c.closePath();
   };
@@ -98,7 +98,7 @@ function init() {
   particles = [];
 
   for(var i = 0; i < particleCount; ++i) {
-    var radius = (Math.random() * 3) + 1;
+    var radius = (Math.random() * 2) + 1;
     particles.push(new Particle(canvas.width/2, canvas.height/2, radius, particleColors[randomIntBetween(0, particleColors.length)]));
   }
 
@@ -110,7 +110,7 @@ init();
 (function animateCanvas() {
 
   requestAnimationFrame(animateCanvas);
-  c.fillStyle = "rgba(255,255,255,0.06)";
+  c.fillStyle = "rgba(255,255,255,0.08)";
   c.fillRect(0,0,window.innerWidth, window.innerHeight);
 
   for(var i = 0; i < particleCount; ++i) {
