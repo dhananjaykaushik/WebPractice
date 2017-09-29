@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SNAKE</title>
+  <style>
+
+  * {
+
+    padding: 0;
+    margin: 0;
+
+  }
+
+  body {
+    background: #555;
+  }
+
+  canvas {
+    background: #333;
+    position: relative;
+    left: 2vw;
+    top: 2vh;
+  }
+
+  #gameOverMenu {
+    position: absolute;
+    top: 20vh;
+    left: 20vw;
+    background: #777;
+    width: 50vw;
+    height: 50vh;
+    text-align: center;
+    color: white;
+    font-family: arial, helvetica, tahoma, sans-serif;
+    letter-spacing: 1.3px;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    display: none;
+  }
+
+  #gameOverMenu h1 {
+    margin-bottom: 8vh;
+  }
+
+  .gameOver {
+  	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  	box-shadow:inset 0px 1px 0px 0px #ffffff;
+  	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+  	background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  	background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  	background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  	background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+  	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+  	background-color:#ededed;
+  	-moz-border-radius:6px;
+  	-webkit-border-radius:6px;
+  	border-radius:6px;
+  	border:1px solid #dcdcdc;
+  	display:inline-block;
+  	cursor:pointer;
+  	color:#7d767d;
+  	font-family:Arial;
+  	font-size:2vw;
+  	font-weight:bold;
+  	padding:13px 25px;
+  	text-decoration:none;
+  	text-shadow:0px 1px 0px #ffffff;
+  }
+  .gameOver:hover {
+  	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+  	background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  	background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  	background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  	background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+  	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+  	background-color:#dfdfdf;
+  }
+  .gameOver:active {
+  	position:relative;
+  	top:1px;
+  }
+
+
+  #score {
+
+    width: auto;
+    height: 2vh;
+    position: absolute;
+    top: 3vh;
+    left: 2.8vw;
+    color: white;
+    font-size: 3.3vh;
+    font-family: arial, helvetica, tahoma, sans-serif;
+  }
+
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas"></canvas>
+  <div id="gameOverMenu">
+    <h1>GAME OVER</h1>
+    <a href="#" class="gameOver" id="gameOverBtn">RESTART</a>
+  </div>
+  <div id="score">
+    SCORE : 0
+  </div>
+  <script src="main.js"></script>
+
+</body>
+</html>
