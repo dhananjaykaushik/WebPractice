@@ -30,7 +30,7 @@ var score = 1;
 
 
 var fx = randomIntBetween(partWidth, canvas.width - partWidth);
-var fy = randomIntBetween(partHeight, canvas.height - partHeight);
+var fy = randomIntBetween(partHeight, (canvas.height / 2) - partHeight);
 var lfx;
 var lfy;
 var lfa = 1;
@@ -46,6 +46,7 @@ window.addEventListener("keyup", function(e) {
       // DO NOTHING
     } else {
       dir = "left";
+      
     }
 
     break;
@@ -57,6 +58,7 @@ window.addEventListener("keyup", function(e) {
       // DO NOTHING
     } else {
       dir = "up";
+      
     }
 
     break;
@@ -68,6 +70,7 @@ window.addEventListener("keyup", function(e) {
       // DO NOTHING
     } else {
       dir = "right";
+      
     }
 
     break;
@@ -79,6 +82,7 @@ window.addEventListener("keyup", function(e) {
       // DO NOTHING
     } else {
       dir = "down";
+      
     }
 
     break;
