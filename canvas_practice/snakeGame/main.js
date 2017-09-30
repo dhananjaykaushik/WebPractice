@@ -2,7 +2,6 @@ document.getElementById("gameOverBtn").addEventListener("click", function() {
   location.reload();
 });
 
-
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
@@ -12,8 +11,8 @@ canvas.height = window.innerHeight - 50;
 var partHeight = 20;
 var partWidth = 20;
 
-var fruitHeight = 16;
-var fruitWidth = 16;
+var fruitHeight = 25;
+var fruitWidth = 25;
 
 
 // SPEED OF SNAKE
@@ -25,7 +24,7 @@ var dir = "right";
 
 var finishGame = false;
 
-var score = 0;
+var score = 1;
 
 // COORDINATES OF FRUIT
 
@@ -136,6 +135,9 @@ function PartSnake(x, y, color) {
       this.prevX = this.x;
       this.prevY = this.y;
       if(this.arrIndex != 0) {
+        if(this.arrIndex > 8) {
+          checkForSM(snake[this.arrIndex - 1].prevX, snake[this.arrIndex - 1].prevY);
+        }
         this.x = snake[this.arrIndex - 1].prevX;
         this.y = snake[this.arrIndex - 1].prevY;
       } else {
@@ -182,8 +184,8 @@ function init() {
 function fruitReborn() {
   lfx = fx;
   lfy = fy;
-  fx = randomIntBetween(partWidth, canvas.width - fruitWidth);
-  fy = randomIntBetween(partHeight, canvas.height - fruitHeight);
+  fx = randomIntBetween(fruitWidth, canvas.width - fruitWidth);
+  fy = randomIntBetween(fruitHeight, canvas.height - fruitHeight);
 }
 
 function collisionDetection() {
@@ -197,10 +199,11 @@ function collisionDetection() {
 function fruitGenerator() {
   ctx.fillStyle = "red";
   ctx.fillRect(fx, fy,fruitWidth,fruitHeight);
-
 }
 
 function addSnakeLength() {
+  snake.push(new PartSnake(snake[snake.length - 1].x, snake[snake.length - 1].y, "white"));
+  snake.push(new PartSnake(snake[snake.length - 1].x, snake[snake.length - 1].y, "white"));
   snake.push(new PartSnake(snake[snake.length - 1].x, snake[snake.length - 1].y, "white"));
   snake.push(new PartSnake(snake[snake.length - 1].x, snake[snake.length - 1].y, "white"));
 }
@@ -226,7 +229,13 @@ function lastFruitFadeAway() {
   ctx.fillRect(lfx, lfy,fruitWidth,fruitHeight);
 
 }
+function checkForSM(fx, fy) {
+  if((fx < (snake[0].x + partWidth)) && (fx + partWidth > snake[0].x) && (fy < (snake[0].y + partHeight)) && (fy + partHeight > snake[0].y)) {
+    finishGame = true;
+    return true;
+  }
 
+}
 
 (function animateCanvas() {
 
@@ -238,9 +247,13 @@ function lastFruitFadeAway() {
       fruitReborn();
       addSnakeLength();
       updateScore();
+      if(score % 10 == 0) {
+        speed += 2;
+      }
     }
     requestAnimationFrame(animateCanvas);
     ctx.clearRect(0,0,canvas.width, canvas.height);
+    checkForSM();
 
     for(i = 0; i < snake.length; ++i) {
 
