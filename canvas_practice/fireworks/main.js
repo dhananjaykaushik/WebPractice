@@ -53,8 +53,8 @@ function Particle(x, y, spread, dx) {
   if(!this.spread) {
     this.vel = createVector(0, random(-17, -9));
   } else {
-    this.vel = p5.Vector.random3D();
-    this.vel.mult(random(5, 15));
+    this.vel = p5.Vector.random2D();
+    this.vel.mult(random(2, 25));
   }
   this.pos = createVector(this.x, this.y);
 
