@@ -17,9 +17,11 @@ function Drop() {
       // SPLASH EFFECT AT (dx,dy)
 
       fill(138, 43, 226);
-      arc(dx, dy, 5, 5, 0, TWO_PI);
-      arc(dx - this.len, dy - this.len, 5, 5, 0, TWO_PI);
-      arc(dx + this.len, dy - this.len, 5, 5, 0, TWO_PI);
+      arc(dx, dy, 3, 3, 0, TWO_PI);
+      arc(dx - (this.len/2), dy - this.len, 3, 3, 0, TWO_PI);
+      arc(dx + (this.len/2), dy - this.len, 3, 3, 0, TWO_PI);
+      arc(dx, dy - (this.len/2), 5, 5, 0, TWO_PI);
+
 
     }
 

@@ -5,9 +5,9 @@ function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
   background(0);
   var x = 0;
-  var y = 0;
+  // var y = 0;
   for(var i = 0; i <= (width / symbolSize); ++i) {
-    var stream = new Stream(x, y);
+    var stream = new Stream(x, round(random(-width, 0)));
     stream.generateSymbols();
     streams.push(stream);
     x += symbolSize;
@@ -20,15 +20,16 @@ function setup() {
 
 function makeItRain() {
   requestAnimationFrame(makeItRain);
-  background(0);
+  background(0, 150);
   for(i = 0; i < streams.length; ++i) {
     streams[i].render();
   }
 }
 
-function Symbol(x, y, speed) {
+function Symbol(x, y, speed, first) {
   this.x = x;
   this.y = y;
+  this.first = first;
   this.speed = speed;
   this.value;
   this.switchSymbolInterval = round(random(5, 20));
@@ -65,17 +66,25 @@ function Stream(x, y) {
   this.generateSymbols = function() {
     var y = this.y;
     var x = this.x;
+    var first = round(random(0, 1)) == 1;
     for(var i = 0; i < this.totalSymbols; ++i) {
-      symbol = new Symbol(x, y, this.streamSpeed);
+      symbol = new Symbol(x, y, this.streamSpeed, first);
       symbol.setToRandomSymbol();
       this.symbols.push(symbol);
       y -= symbolSize;
+      first = false;
     }
   };
 
   this.render = function() {
+
     this.symbols.forEach(function(symbol) {
-      fill(0,255,70);
+      if(symbol.first) {
+        fill(180,255,180);
+      } else {
+        fill(0,255,70);
+      }
+
       text(symbol.value, symbol.x, symbol.y);
       symbol.rainDown();
       symbol.setToRandomSymbol();
