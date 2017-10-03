@@ -5,9 +5,6 @@ var canvas = document.getElementById('myCanvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-
-// var c -->  context
-
 var c = canvas.getContext('2d');
 
 var particleColors = ["#C351FF", "#832CE8", "#723DFF", "#3C2CE8", "#2A40FF", "orangered", "gold", "navyblue", "#333"];
