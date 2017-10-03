@@ -21,8 +21,6 @@ function Drop() {
       arc(dx - (this.len/2), dy - this.len, 3, 3, 0, TWO_PI);
       arc(dx + (this.len/2), dy - this.len, 3, 3, 0, TWO_PI);
       arc(dx, dy - (this.len/2), 5, 5, 0, TWO_PI);
-
-
     }
 
     if (this.y > height) {
