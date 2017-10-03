@@ -39,7 +39,7 @@ module.exports={
             "fors": {
                 "p5": 1
             },
-            "namespaces": {}
+            "namespaces": {} 
         },
         "src/color/setting.js": {
             "name": "src/color/setting.js",
