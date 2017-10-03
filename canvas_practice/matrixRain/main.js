@@ -5,7 +5,6 @@ function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
   background(0);
   var x = 0;
-  // var y = 0;
   for(var i = 0; i <= (width / symbolSize); ++i) {
     var stream = new Stream(x, round(random(-width, 0)));
     stream.generateSymbols();
