@@ -90,8 +90,7 @@ function setup() {
   }
 
   current = grid[0];
-
-
+    
 }
 
 function draw() {
