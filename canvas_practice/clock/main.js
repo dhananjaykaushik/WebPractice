@@ -51,8 +51,8 @@ function draw() {
    line(0, 0, 100, 0);
    pop();
 
-   stroke(255);
-   strokeWeight(12);
+   stroke(0);
+   strokeWeight(15);
    point(0, 0);
 
    push();
