@@ -9,12 +9,19 @@ function setup() {
 function draw() {
     background(0);
     var cou = 0;
+    var attempts = 0;
     
     while(cou < 1) {
         var c = createCircle();
         if(c) {
             circles.push(c);
             ++cou;
+        }
+        ++attempts;
+        if(attempts > 1000) {
+            noLoop();
+            console.log("DONE");
+            break;
         }
     }
     
@@ -29,7 +36,7 @@ function draw() {
                     if(i != j) {
                         var d = dist(circles[i].x, circles[i].y, circles[j].x, circles[j].y);
                     
-                        if(d - 2 < (circles[i].r + circles[j].r)) {
+                        if(d - 5 < (circles[i].r + circles[j].r)) {
                             circles[i].growing = false;
                             break;
                         }
@@ -62,7 +69,7 @@ function createCircle() {
     }
     
     if(valid) {
-        return new Circle(x, y, 1);
+        return new Circle(x, y, 0.7);
     }
     return null;
     

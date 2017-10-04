@@ -4,7 +4,7 @@ function Circle(x, y, r) {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.c = color(random(255), 100, random(255));
+    this.c = color(255, 255, 255);
     this.growing = true;
     
     this.show = function() {
