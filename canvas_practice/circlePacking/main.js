@@ -1,17 +1,46 @@
 //MAIN
 
-
+var img;
 var circles = [];
+var whitePixels;
+var ctx;
+var m = true;
+
+function preload() {
+    img = loadImage("./test.png");
+}
+
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
+    
+    createCanvas(200, 200);
+    
+    whitePixels = [];
+    img.loadPixels();
+    
+    
+    for(var x = 0; x < img.height; x++) {
+        for(var y = 0; y < img.width * 4; y+=4) {
+            var pix = img.get(x, y);
+            var c = color(pix);
+            var b = brightness(c);
+            
+            if(b > 1) {
+                whitePixels.push(createVector(x, y));
+            }
+            
+        }
+    }
+
+    console.log(whitePixels.length);
 }
 
 function draw() {
+    
     background(0);
     var cou = 0;
     var attempts = 0;
     
-    while(cou < 1) {
+    while(cou < 20) {
         var c = createCircle();
         if(c) {
             circles.push(c);
@@ -54,14 +83,16 @@ function draw() {
 }
 
 function createCircle() {
-    var x = random(width);
-    var y = random(height);
+    
+    var spot = random(whitePixels);
+    var x = spot ? spot.x : random(width);
+    var y = spot ? spot.y : random(height);
     var valid = true;
     
     for(var i = 0; i < circles.length; ++i) {
         var d = dist(x, y, circles[i].x, circles[i].y);
         
-        if(d < circles[i].r) {
+        if(d < circles[i].r + 2) {
             valid = false;
             break;
         }
@@ -69,7 +100,7 @@ function createCircle() {
     }
     
     if(valid) {
-        return new Circle(x, y, 0.7);
+        return new Circle(x, y, 0.1);
     }
     return null;
     

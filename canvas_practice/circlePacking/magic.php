@@ -21,8 +21,9 @@
         $data = base64_decode($img);
         $file = $upload_dir."/test.png";
         $success = file_put_contents($file, $data);
+//    NOW IMAGE IS SAVED AS test.png
+//    APPLYING JAVASCRIPT ON THAT
     ?>
-    <img src="<?php $_POST["imageSrc"] ?>" />
     
     <script src="../p5.js"></script>
     <script src="circle.js"></script>
