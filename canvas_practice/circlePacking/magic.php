@@ -9,6 +9,17 @@
             padding: 0;
             margin: 0;
         }
+        
+        body {
+            background: black;
+        }
+        
+        #defaultCanvas0 {
+            position: absolute;
+            left: 41vw;
+            top: 20vh;
+        }
+        
     </style>
 </head>
 <body>

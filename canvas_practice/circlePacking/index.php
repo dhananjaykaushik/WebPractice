@@ -57,6 +57,9 @@
         
         img {
             border: 1px solid grey;
+            position: absolute;
+            left: 41vw;
+            top: 20vh;
         }
         
     </style>
@@ -69,7 +72,7 @@
     <br>
     
     <form method="post" action = "magic.php" id="go">
-        <input type="text" id='text' maxlength="9" autofocus autocomplete="off"> <br/>
+        <input type="text" id='text' maxlength="1" autofocus autocomplete="off"> <br/>
         <input type="text" name="imageSrc" id='text1' style="display : none">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" id="gen" value="GENERATE">
     </form>
@@ -79,8 +82,8 @@
         var tCtx = document.getElementById('textCanvas').getContext('2d'),
     imageElem = document.getElementById('image');
         document.getElementById('textCanvas').style.backgroundColor = "black";
-        tCtx.canvas.width = 200;
-        tCtx.canvas.height = 200;
+        tCtx.canvas.width = 220;
+        tCtx.canvas.height = 220;
 
         document.getElementById('text').addEventListener('keyup', function (){
             
@@ -88,10 +91,10 @@
             
             tCtx.fillStyle = "black";
             tCtx.fillRect(0, 0, tCtx.canvas.width, tCtx.canvas.height);
-            tCtx.font = "bold 130px Helvetica";
+            tCtx.font = "800 270px Helvetica";
             tCtx.fillStyle = "white";
             tCtx.textAlign = 'center';
-            tCtx.fillText(this.value, tCtx.canvas.width/2 , tCtx.canvas.height / 1.3);
+            tCtx.fillText(this.value, tCtx.canvas.width/2 , tCtx.canvas.height/1.06);
             imageElem.src = tCtx.canvas.toDataURL();
             document.getElementById('text1').value = tCtx.canvas.toDataURL();
             image.src = tCtx.canvas.toDataURL();

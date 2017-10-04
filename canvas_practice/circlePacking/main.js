@@ -4,7 +4,6 @@ var img;
 var circles = [];
 var whitePixels;
 var ctx;
-var m = true;
 
 function preload() {
     img = loadImage("./test.png");
@@ -12,13 +11,13 @@ function preload() {
 
 function setup() {
     
-    createCanvas(200, 200);
+    createCanvas(220, 220);
     
     whitePixels = [];
     img.loadPixels();
     
     
-    for(var x = 0; x < img.height; x++) {
+    for(var x = img.height / 4; x < img.height; x++) {
         for(var y = 0; y < img.width * 4; y+=4) {
             var pix = img.get(x, y);
             var c = color(pix);
@@ -31,7 +30,6 @@ function setup() {
         }
     }
 
-    console.log(whitePixels.length);
 }
 
 function draw() {
@@ -40,7 +38,7 @@ function draw() {
     var cou = 0;
     var attempts = 0;
     
-    while(cou < 20) {
+    while(cou < 3) {
         var c = createCircle();
         if(c) {
             circles.push(c);
