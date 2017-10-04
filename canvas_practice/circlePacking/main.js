@@ -26,7 +26,7 @@ function draw() {
                     if(i != j) {
                         var d = dist(circles[i].x, circles[i].y, circles[j].x, circles[j].y);
                     
-                        if(d < (circles[i].r + circles[j].r)) {
+                        if(d - 2 < (circles[i].r + circles[j].r)) {
                             circles[i].growing = false;
                             break;
                         }
