@@ -8,11 +8,14 @@ function setup() {
 
 function draw() {
     background(0);
+    var cou = 0;
     
-    
-    var c = createCircle();
-    if(c) {
-        circles.push(c);
+    while(cou < 1) {
+        var c = createCircle();
+        if(c) {
+            circles.push(c);
+            ++cou;
+        }
     }
     
     
