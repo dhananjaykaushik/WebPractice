@@ -20,9 +20,7 @@ function draw() {
     
     stroke(255);
     fill(255);
-    if(random(0,1) < 0.2) {
-        fill(random(150, 255), random(150, 255) , random(200, 255));
-    }
+    
     strokeWeight(1);
     
     var dAngle = PI / 100;
