@@ -14,17 +14,25 @@ function setup() {
 
 function draw() {
     
+    point(width/2, height / 2);
+    
     background(51);
     translate(width/2, height/2);
     rotate(PI / 2);
     
     stroke(255);
-    fill(255);
+    noStroke();
+    fill(252, 129, 10);
+    
+    if(random(0, 1) < 0.03) {
+        fill(252, 129, 10, 200);
+    }
+    
     
     strokeWeight(1);
     
     var dAngle = PI / 100;
-    var dx = 0.028;
+    var dx = 0.025;
     
     beginShape();
     var xOffset = 0;
@@ -39,7 +47,6 @@ function draw() {
         var y = sin(yOff) * r * sin(i);
         
         xOffset += dx;
-        
         vertex(x, y);
         
         
@@ -55,7 +62,6 @@ function draw() {
         var y = sin(yOff) * r * sin(i);
         
         xOffset -= dx;
-        
         vertex(x, y);
         
         
@@ -77,5 +83,9 @@ function draw() {
         }
     }
     
+//    fill(252, 129, 50, 255);
+    strokeWeight(4);
+    noStroke();
+    ellipse(0, 0, 300 - (yOff * 6), 15);
     
 }
