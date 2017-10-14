@@ -91,6 +91,7 @@ h1 {
 }
 
 .spinner-2:after {
+    
   top : auto;
   bottom : -18px;
   animation : atomAnim 1s linear infinite;
