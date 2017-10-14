@@ -1,155 +1,164 @@
 <!DOCTYPE html>
 <html ng-app="angJs">
-  <head>
-    <meta charset="utf-8">
-    <title>FILTERS</title>
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-      }
-      body {
-        background: #333;
-        color: white;
-        font-family: arial, helvetical, tahoma, sans-serif;
-        letter-spacing: 1.3px;
-      }
-      div.container {
-        display: flex;
-        flex-direction: column;
-      }
-      .container h1 {
-        background: #444;
-        margin: 0 0 2vh 0;
-        padding: 5vh 0;
-        width: 100vw;
-        text-align: center;
-        font-size: 4.5vh;
-        text-transform: uppercase;
-      }
 
-      .container div {
-        flex-grow: 2;
-        padding: 10vh;
-        padding-left: 10vw;
-      }
-      .container div input {
-        width: 50vw;
-        padding: 2vh 3vh;
-        font-size: 2vh;
-        background: #777;
-        border: none;
-        border-radius: 2vh;
-        outline: none;
-        color: white;
-        margin-bottom: 5vh;
-      }
+   <head>
+      <meta charset="utf-8">
+      <title>FILTERS</title>
+      <style>
+         * {
+            padding: 0;
+            margin: 0;
+         }
 
-      .container div ul {
-        padding: 2vh 1vh;
-        list-style: none;
-      }
-      .container div ul li {
-        margin: 1vh 0 1vh 0;
-        padding: 1vh;
-        width: 100vw;
-      }
+         body {
 
-    </style>
-  </head>
-  <body>
+            background: #333;
+            color: white;
+            font-family: arial, helvetical, tahoma, sans-serif;
+            letter-spacing: 1.3px;
+         }
 
-    <div class="container" ng-controller="Test">
-      <h1>FUN WITH FILTERS</h1>
-      <div>
-        <input type="text" ng-model="filText" />
-        <ul>
-          <li ng-repeat="cust in customers | filter : filText">
-            {{cust.name + ' - ' + cust.location}}
-          </li>
-        </ul>
+         div.container {
+            display: flex;
+            flex-direction: column;
+         }
+
+         .container h1 {
+            background: #444;
+            margin: 0 0 2vh 0;
+            padding: 5vh 0;
+            width: 100vw;
+            text-align: center;
+            font-size: 4.5vh;
+            text-transform: uppercase;
+         }
+
+         .container div {
+            flex-grow: 2;
+            padding: 10vh;
+            padding-left: 10vw;
+         }
+
+         .container div input {
+            width: 50vw;
+            padding: 2vh 3vh;
+            font-size: 2vh;
+            background: #777;
+            border: none;
+            border-radius: 2vh;
+            outline: none;
+            color: white;
+            margin-bottom: 5vh;
+         }
+
+         .container div ul {
+            padding: 2vh 1vh;
+            list-style: none;
+         }
+
+         .container div ul li {
+            margin: 1vh 0 1vh 0;
+            padding: 1vh;
+            width: 100vw;
+         }
+
+      </style>
+   </head>
+
+   <body>
+
+      <div class="container" ng-controller="Test">
+         <h1>FUN WITH FILTERS</h1>
+         <div>
+            <input type="text" ng-model="filText" />
+            <ul>
+               <li ng-repeat="cust in customers | filter : filText">
+                  {{cust.name + ' - ' + cust.location}}
+               </li>
+            </ul>
+         </div>
       </div>
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-    <script type="text/javascript">
-      var angJs = angular.module('angJs', []).controller('Test', function($scope){
-      // ADD AS MANY CUSTOMERS AS YOU WANT
-        $scope.customers = [
-          {
-            name : "John Doe",
-            location : "New York"
-          },
-          {
-            name : "Jane Doe",
-            location : "America"
-          },
-          {
-            name : "Rajesh",
-            location : "India"
-          },
-          {
-            name : "Leonard",
-            location : "America"
-          },
-          {
-            name : "Chase",
-            location : "Austraila"
-          },
-          {
-            name : "Nelson",
-            location : "South Africa"
-          },
-          {
-            name : "Summer",
-            location : "England"
-          },
-          {
-            name : "Claire",
-            location : "America"
-          },
-          {
-            name : "Jimmy",
-            location : "America"
-          },
-          {
-            name : "Tom",
-            location : "America"
-          },
-          {
-            name : "Happy",
-            location : "France"
-          },
-          {
-            name : "Kenny",
-            location : "France"
-          },
-          {
-            name : "Josh",
-            location : "America"
-          },
-          {
-            name : "Braxton",
-            location : "America"
-          },
-          {
-            name : "Jack Ma",
-            location : "China"
-          },
-          {
-            name : "Sasha",
-            location : "America"
-          },
-          {
-            name : "Sherlock",
-            location : "England"
-          },
-          {
-            name : "Guardian",
-            location : "Russia"
-          }
-        ];
-      });
-    </script>
-  </body>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+      <script type="text/javascript">
+         var angJs = angular.module('angJs', []).controller('Test', function($scope) {
+            // ADD AS MANY CUSTOMERS AS YOU WANT
+            $scope.customers = [{
+                  name: "John Doe",
+                  location: "New York"
+               },
+               {
+                  name: "Jane Doe",
+                  location: "America"
+               },
+               {
+                  name: "Rajesh",
+                  location: "India"
+               },
+               {
+                  name: "Leonard",
+                  location: "America"
+               },
+               {
+                  name: "Chase",
+                  location: "Austraila"
+               },
+               {
+                  name: "Nelson",
+                  location: "South Africa"
+               },
+               {
+                  name: "Summer",
+                  location: "England"
+               },
+               {
+                  name: "Claire",
+                  location: "America"
+               },
+               {
+                  name: "Jimmy",
+                  location: "America"
+               },
+               {
+                  name: "Tom",
+                  location: "America"
+               },
+               {
+                  name: "Happy",
+                  location: "France"
+               },
+               {
+                  name: "Kenny",
+                  location: "France"
+               },
+               {
+                  name: "Josh",
+                  location: "America"
+               },
+               {
+                  name: "Braxton",
+                  location: "America"
+               },
+               {
+                  name: "Jack Ma",
+                  location: "China"
+               },
+               {
+                  name: "Sasha",
+                  location: "America"
+               },
+               {
+                  name: "Sherlock",
+                  location: "England"
+               },
+               {
+                  name: "Guardian",
+                  location: "Russia"
+               }
+            ];
+         });
+
+      </script>
+   </body>
+
 </html>
