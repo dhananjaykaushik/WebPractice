@@ -248,7 +248,7 @@ setInterval(function() {
 	document.getElementById("score").innerHTML = "SCORE : " + score;
 
 
-}, 200);
+}, 150);
 
 
 // Adding event listeners to move hero
